@@ -3,7 +3,7 @@
 
 // variables:
 bool calibration{false}; //true if want to calibrate all sensors and store parameters in EEPROM. false if just to use parameters stored in EEPROM.
-bool usePumps{true};     //true if want to use the setupPumps(), pumpStart() functions for watering. the following arrays pumpOnTime[] and pumpSensorDryThreshold[]
+bool usePumps{false};     //true if want to use the setupPumps(), pumpStart() functions for watering. the following arrays pumpOnTime[] and pumpSensorDryThreshold[]
                          //in YC_Moisture_Monitor.cpp need to be configured manually.
 
 void setup()
@@ -19,6 +19,7 @@ void setup()
   {
     ; //wait until serial port is ready
   }
+  Serial.println("YCC: serial monitor successfully connected...");
   setupSensors(calibration);
   setupDH22();
   if (usePumps)
